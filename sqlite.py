@@ -22,7 +22,7 @@ def return_table():
     c.execute("SELECT * FROM patients")
     patients = c.fetchall()
     conn.close()
-    print(patients)
+    return patients
     # return render_template('index.html', patients=patients)
 
 #Function to Add patients to the Table / DB
@@ -61,10 +61,10 @@ def get_patient(name):
     print(c.fetchall())
     conn.close()
 
-create_table()
-return_table()
-add_patient("Shreejan", '22', 'M', 'Doesnt not FLASK')
-add_patient("Aayush", '21', 'M', 'Knows FLASK')
-add_patient("Phil King", '', 'M', 'Knows SGX')
-get_patient("Shreejan")
-get_patient("Josh")
+# create_table()
+print(return_table())
+# add_patient("Shreejan", '22', 'M', 'Doesnt not FLASK')
+# add_patient("Aayush", '21', 'M', 'Knows FLASK')
+# add_patient("Phil King", '', 'M', 'Knows SGX')
+# get_patient("Shreejan")
+# get_patient("Josh")
