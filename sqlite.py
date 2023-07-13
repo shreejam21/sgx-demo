@@ -46,7 +46,7 @@ def add_patient(name, age, gender, condition):
     # return render_template('add.html')
 
 #function to query Data
-def get_patient(name, age, gender):
+def get_patient(name):
     
     # if request.method == 'POST':
     #     name = request.form['name']
@@ -57,7 +57,7 @@ def get_patient(name, age, gender):
 
     conn = sqlite3.connect(DATABASE)
     c = conn.cursor()
-    c.execute("SELECT * FROM patients WHERE name = ? OR age = ? OR GENDER = ?", (name, age, gender))    
+    c.execute("SELECT * FROM patients WHERE name = ?", (name,))
     data = c.fetchall()
     conn.close()
     return data

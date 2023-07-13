@@ -4,16 +4,13 @@ import sqlite
 
 app = Flask(__name__)
 
-
-
-
 @app.route('/')
 def index():
     return render_template("index.html")
 
 @app.route('/show-all')
 def show_all_patients():
-    return render_template("all.html", patients=return_table())
+    return render_template("all.html", patients=sqlite.return_table())
 
 @app.route('/get-patient-prompt')
 def get_patient_prompt():
@@ -23,9 +20,7 @@ def get_patient_prompt():
 def get_patient_result():
     if request.method == 'POST':
       name = request.form['Name']
-      age = request.form['Age']
-      gender = request.form['Gender']
-      return render_template("all.html", patients=get_patient(name, age, gender))
+      return render_template("all.html", patients=sqlite.get_patient(name))
 
 @app.route('/add-patient', methods= ['GET', 'POST'])
 def add_patient():
