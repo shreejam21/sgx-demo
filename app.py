@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
-from sqlite import return_table, get_patient
+
+import sqlite
+
 app = Flask(__name__)
 
 
@@ -24,6 +26,22 @@ def get_patient_result():
       age = request.form['Age']
       gender = request.form['Gender']
       return render_template("all.html", patients=get_patient(name, age, gender))
+
+@app.route('/add-patient', methods= ['GET', 'POST'])
+def add_patient():
+    if request.method == 'POST':
+        name = request.form['name']
+        age = request.form['age']
+        gender = request.form['gender']
+        condition = request.form['condition']
+
+        sqlite.add_patient(name,age,gender,condition)
+
+        return render_template('patient-added.html')
+        
+    return render_template('add-patient.html')
+
+  
 
 if __name__ == '__main__':
     app.run(debug=True)
