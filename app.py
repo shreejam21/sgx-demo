@@ -26,7 +26,7 @@ def add_patient():
 
         sqlite.add_patient(name,age,gender,condition)
 
-        return "Patient Added Succesfully"
+        return render_template('patient-added.html')
         
     return render_template('add-patient.html')
 
