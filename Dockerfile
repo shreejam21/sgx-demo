@@ -12,4 +12,4 @@ COPY sqlite.py ./
 COPY templates ./templates
 COPY app.py ./
 
-CMD sudo python3 app.py
+CMD python3 app.py
