@@ -12,5 +12,9 @@ RUN pip install pyopenssl
 COPY sqlite.py ./
 COPY templates ./templates
 COPY app.py ./
+COPY patients.db ./
 
 CMD python3 app.py
+
+#docker build -t app .
+#docker run -it -p 5000:5000 app
