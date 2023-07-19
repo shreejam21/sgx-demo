@@ -39,4 +39,5 @@ def add_patient():
   
 
 if __name__ == '__main__':
+    sqlite.create_table()
     app.run(host = '0.0.0.0', port = 5000, ssl_context='adhoc', debug=True)
