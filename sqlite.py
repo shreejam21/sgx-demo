@@ -1,9 +1,13 @@
 import sqlite3
 
-DATABASE = '/home/shreejam/sgx-demo/patients.db'
+DATABASE = 'patients.db'
 
 #Function to Create Table if table doesnt exist
 def create_table():
+    try:
+        open(DATABASE, "x")
+    except:
+        print("File Exist")
     conn = sqlite3.connect(DATABASE)
     c = conn.cursor()
     c.execute('''CREATE TABLE IF NOT EXISTS patients
