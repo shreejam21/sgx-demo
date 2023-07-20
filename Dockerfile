@@ -9,12 +9,11 @@ RUN apt-get install python3-pip -y
 RUN pip install flask
 RUN pip install pyopenssl
 RUN mkdir tmp
-RUN mkdir /tmp
+
 
 COPY sqlite.py ./
 COPY templates ./templates
 COPY app.py ./
-COPY patients.db ./
 
 CMD python3 app.py
 
