@@ -14,6 +14,7 @@ RUN mkdir tmp
 COPY sqlite.py ./
 COPY templates ./templates
 COPY app.py ./
+COPY db ./db
 
 CMD python3 app.py
 
