@@ -1,6 +1,6 @@
 import sqlite3
 
-DATABASE = 'patients.db'
+DATABASE = 'db/patients.db'
 
 #Function to Create Table if table doesnt exist
 def create_table():
