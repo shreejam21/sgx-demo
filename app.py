@@ -2,6 +2,8 @@ from flask import Flask, render_template, request, redirect, url_for
 
 import sqlite
 
+import SGX_quote
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -40,4 +42,8 @@ def add_patient():
 
 if __name__ == '__main__':
     sqlite.create_table()
+    quote, report = SGX_quote.gen_quote("dummy-data")
+    print("Quote:", quote)
+    print()
+    print("Report:", report)
     app.run(host = '0.0.0.0', port = 5000, ssl_context='adhoc', debug=True)
