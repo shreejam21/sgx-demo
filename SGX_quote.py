@@ -7,7 +7,7 @@ def gen_quote(user_report_data):
     with open("/dev/attestation/quote", 'r') as quote_file:
         quote = quote_file.readall()
     
-    with open("dev/attestation/report", 'r') as report_file:
+    with open("/dev/attestation/report", 'r') as report_file:
         report = report_file.readall()
     
     return quote, report
