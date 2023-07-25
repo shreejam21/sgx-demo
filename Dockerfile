@@ -8,13 +8,14 @@ RUN apt-get install python3 -y
 RUN apt-get install python3-pip -y
 RUN pip install flask
 RUN pip install pyopenssl
+RUN pip install requests
 RUN mkdir tmp
-
 
 COPY sqlite.py ./
 COPY templates ./templates
 COPY app.py ./
 COPY db ./db
+COPY SGX_quote.py ./
 
 CMD python3 app.py
 
