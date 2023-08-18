@@ -15,7 +15,6 @@ COPY sqlite.py ./
 COPY templates ./templates
 COPY app.py ./
 COPY db ./db
-COPY SGX_quote.py ./
 
 CMD python3 app.py
 
